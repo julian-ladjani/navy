@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Tue Jan 31 16:16:33 2017 julian ladjani
+** Last update Tue Jan 31 16:23:17 2017 julian ladjani
 */
 
 #ifndef NAVY_H_
@@ -19,6 +19,8 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+
+# define READ_SIZE 32
 
 typedef struct	s_game
 {
