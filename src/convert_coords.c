@@ -1,18 +1,14 @@
 /*
-** my_printf_fonc_base.c for my_printf in /home/julian-ladjani/delivery/PSU/my_printf/PSU_2016_my_printf/src/fonction
-**
-** Made by julian ladjani
-** Login   <julian.ladjani@epitech.net>
-**
-** Started on  Sat Nov 12 17:51:57 2016 julian ladjani
-<<<<<<< HEAD
-** Last update Wed Feb  1 14:17:05 2017 Maxime PICOT
-=======
-** Last update Wed Feb  1 14:42:25 2017 julian ladjani
->>>>>>> 8772e775d877eb292dead66f5546bec31ff364e4
+** convert_coords.c for navy in /home/shielder/Projects/PSU/PSU_2016_navy/src
+** 
+** Made by Maxime PICOT
+** Login   <shielder@epitech.net>
+** 
+** Started on  Wed Feb  1 14:46:53 2017 Maxime PICOT
+** Last update Wed Feb  1 16:41:28 2017 Maxime PICOT
 */
 
-#include "my.h"
+#include "navy.h"
 
 char	my_convertcoords(char coord, int type)
 {
@@ -25,7 +21,7 @@ char	my_convertcoords(char coord, int type)
     {
       while (base[i] != coord)
 	i++;
-      return (base[i]);
+      return (i + 48);
     }
   else if (type == 2)
     {
