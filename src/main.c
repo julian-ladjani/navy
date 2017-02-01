@@ -5,6 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
+<<<<<<< HEAD
 ** Last update Wed Feb  1 15:35:52 2017 Maxime PICOT
 */
 
@@ -28,4 +29,12 @@ int	main(int ac, char **av)
     }
   else
     return (0);
+=======
+** Last update Wed Feb  1 17:09:01 2017 julian ladjani
+*/
+
+int	main(int ac, char **av, char **ae)
+{
+  prepare_my_signal();
+>>>>>>> 38b5f3c3b1e9c1c1235038d5c0bbd838e4c81059
 }
