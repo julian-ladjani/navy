@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Tue Jan 31 16:23:17 2017 julian ladjani
+** Last update Tue Jan 31 16:47:04 2017 julian ladjani
 */
 
 #ifndef NAVY_H_
@@ -27,6 +27,7 @@ typedef struct	s_game
 	char	**map;
 	int	posx;
 	int	posy;
+	int	mode;
 	pid_t	mpid;
 	pid_t	opid;
 }		t_game;
