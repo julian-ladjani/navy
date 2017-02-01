@@ -5,7 +5,11 @@
 ** Login   <julian.ladjani@epitech.net>
 **
 ** Started on  Sat Nov 12 17:51:57 2016 julian ladjani
+<<<<<<< HEAD
 ** Last update Wed Feb  1 14:17:05 2017 Maxime PICOT
+=======
+** Last update Wed Feb  1 14:42:25 2017 julian ladjani
+>>>>>>> 8772e775d877eb292dead66f5546bec31ff364e4
 */
 
 #include "my.h"
@@ -20,8 +24,15 @@ char	my_convertcoords(char coord, int type)
   if (type == 1)
     {
       while (base[i] != coord)
-	{
-	  
-	}
+	i++;
+      return (base[i]);
     }
+  else if (type == 2)
+    {
+      coord--;
+      if (coord > 8)
+	return ('\0');
+      return (base[coord]);
+    }
+  return ('\0');
 }
