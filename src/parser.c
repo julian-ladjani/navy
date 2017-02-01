@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Tue Jan 31 21:06:00 2017 Maxime PICOT
+** Last update Wed Feb  1 12:06:07 2017 Maxime PICOT
 */
 
 char	**my_setmap()
@@ -26,6 +26,7 @@ char	**my_setmap()
 	  map[i][j] = '.';
 	  j++;
 	}
+      map[i][j] = '\0';
       i++;
       j = 0;
     }
