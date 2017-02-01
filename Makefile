@@ -5,12 +5,12 @@
 ## Login   <shielder@epitech.net>
 ##
 ## Started on  Mon Nov 21 09:49:22 2016 Maxime PICOT
-## Last update Wed Feb  1 12:13:51 2017 Maxime PICOT
+## Last update Wed Feb  1 13:42:57 2017 julian ladjani
 ##
 
 COMP	=	gcc
 
-SRC	=	src/	\
+SRC	=	src/*	\
 
 CFLAGS	=	-I./include/ -Wall -Wextra -g
 
