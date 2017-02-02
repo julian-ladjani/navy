@@ -5,10 +5,10 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Wed Feb  1 17:25:05 2017 julian ladjani
+** Last update Thu Feb  2 11:10:03 2017 Maxime PICOT
 */
 
-void			handler_usr1(int sig, siginfo_t *si, void *unised)
+void	handler_usr1(int sig, siginfo_t *si, void *unised)
 {
   if (game.mode == 0)
     kill(game.opid, SIGUSR1);
@@ -18,7 +18,7 @@ void			handler_usr1(int sig, siginfo_t *si, void *unised)
     game.posy++;
 }
 
-void			handler_usr2(int sig, siginfo_t *si, void *unised)
+void	handler_usr2(int sig, siginfo_t *si, void *unised)
 { 
   if (game.mode <= 1)
     game.mode++;
@@ -26,10 +26,10 @@ void			handler_usr2(int sig, siginfo_t *si, void *unised)
     game.mode = 0;
 }
 
-void			my_sendpos()
+void	my_sendpos()
 {
-  int			x;
-  int			y;
+  int	x;
+  int	y;
 
   x = 0;
   y = 0;
@@ -52,7 +52,7 @@ void			my_sendpos()
   kill(game.opid, SIGUSR2);
 }
 
-void			my_sendidle()
+void	my_sendidle()
 {
   kill(game.opid, SIGUSR1);
 }
