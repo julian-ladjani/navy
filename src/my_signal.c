@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Thu Feb  2 11:10:03 2017 Maxime PICOT
+** Last update Thu Feb  2 13:45:37 2017 Maxime PICOT
 */
 
 void	handler_usr1(int sig, siginfo_t *si, void *unised)

@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Wed Feb  1 18:00:35 2017 Maxime PICOT
+** Last update Thu Feb  2 15:59:42 2017 Maxime PICOT
 */
 
 char	**my_setmap()
@@ -33,6 +33,24 @@ char	**my_setmap()
   return (map);
 }
 
+char	**set_coordstab()
+{
+  char	**arr;
+  int	i;
+
+  i = 0;
+  if ((arr = malloc(sizeof(char *) * 3)) == NULL)
+    return (NULL);
+  arr[3] == NULL;
+  while (i < 3)
+    {
+      if ((arr[i] = malloc(sizeof(char) * 3)) == NULL)
+	return (NULL);
+      i++;
+    }
+  return (arr);
+}
+
 char 	**nav_parser(char *path)
 {
   char	**map;
@@ -42,6 +60,27 @@ char 	**nav_parser(char *path)
   map = my_setmap();
   map = edit_map(map, fd);
   return (map)
+}
+
+t_coords	coords_parser(char *line)
+{
+  t_coords	coords;
+  int		i;
+  
+  i = 0;
+  coords = set_coordstab();
+  if (line && my_strlen(line) == 7)
+    {
+      while (i < 6)
+	{
+	  if (line[0] >= '2' && line[0] <= '5'
+	      && line[1] == ':' && line[4] == ':')
+	    {
+	      
+	    }
+	}
+    }
+  return (0);
 }
 
 char	**edit_map(char **map, int fd)
