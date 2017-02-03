@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Fri Feb  3 15:33:19 2017 Maxime PICOT
+** Last update Fri Feb  3 16:36:04 2017 Maxime PICOT
 */
 
 #include "navy.h"
@@ -43,7 +43,7 @@ char	**set_coordstab()
   i = 0;
   if ((arr = malloc(sizeof(char *) * 3)) == NULL)
     return (NULL);
-  arr[3] == NULL;
+  arr[3] = NULL;
   while (i < 3)
     {
       if ((arr[i] = malloc(sizeof(char) * 3)) == NULL)
@@ -93,17 +93,19 @@ t_coords	coords_parser(char *line)
   return (coords);
 }
 
-char	**edit_map(char **map, int fd)
+char		**edit_map(char **map, int fd)
 {
-  char	*line;
-  int	i;
+  char		*line;
+  int		i;
+  t_coords	coords;
 
+  (void)coords;
   i = 0;
   while ((line = get_next_line(fd)) != NULL)
     {
       if (i > 8)
 	return (NULL);
-      coords_parser(line, map);
+      coords_parser(line);
       i++;
     }
   return (map);
