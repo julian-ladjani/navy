@@ -5,13 +5,13 @@
 ** Login   <shielder@epitech.net>
 ** 
 ** Started on  Thu Feb  2 14:00:20 2017 Maxime PICOT
-** Last update Thu Feb  2 15:25:53 2017 Maxime PICOT
+** Last update Fri Feb  3 16:52:21 2017 Maxime PICOT
 */
 
 int	my_strlen(char *str)
 {
   int	i;
-  
+
   i = 0;
   while (str && str[i] != '\0')
     i++;

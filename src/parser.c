@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Fri Feb  3 16:36:04 2017 Maxime PICOT
+** Last update Fri Feb  3 16:54:55 2017 Maxime PICOT
 */
 
 #include "navy.h"
@@ -68,7 +68,7 @@ t_coords	coords_parser(char *line)
 {
   t_coords	coords;
   int		i;
-  
+
   i = 0;
   (void)coords;
   if (line && my_strlen(line) == 7)
@@ -89,7 +89,7 @@ t_coords	coords_parser(char *line)
 	      i++;
 	    }
 	}
-    }  
+    }
   return (coords);
 }
 

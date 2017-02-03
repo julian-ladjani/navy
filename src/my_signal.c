@@ -5,12 +5,12 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Fri Feb  3 13:50:07 2017 Maxime PICOT
+** Last update Fri Feb  3 16:54:33 2017 Maxime PICOT
 */
 
 #include "navy.h"
 
-void	handler_usr1(int sig, siginfo_t *si, void *unused)
+void	handler_usr1(int sig, siginfo_t *si, void *unised)
 {
   if (game.mode == 0)
     kill(game.opid, SIGUSR1);
@@ -20,8 +20,8 @@ void	handler_usr1(int sig, siginfo_t *si, void *unused)
     game.posy++;
 }
 
-void	handler_usr2(int sig, siginfo_t *si, void *unused)
-{ 
+void	handler_usr2(int sig, siginfo_t *si, void *unised)
+{
   if (game.mode <= 1)
     game.mode++;
   else
