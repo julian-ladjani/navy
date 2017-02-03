@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Fri Feb  3 11:43:37 2017 Maxime PICOT
+** Last update Fri Feb  3 12:08:21 2017 Maxime PICOT
 */
 
 char	**my_setmap()
@@ -84,6 +84,10 @@ t_coords	coords_parser(char *line)
 		coords.fx = convertcoords(line[i], 1);
 	      else if (is_alpha(line[i]) == 1 && ((i == 1) || (i == 2)))
 		coords.fy = convertcoords(line[i], 2);
+	      else if (is_num(line[i]) == 1 && ((i == 4) || (i == 5)))
+		coords.lx = convertcoords(line[i], 1);
+	      else if (is_alpha(line[i]) == 1 && ((i == 4) || (i == 5)))
+		coords.ly = convertcoords(line[i], 2);
 	      i++;
 	    }
 	}
