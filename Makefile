@@ -5,7 +5,7 @@
 ## Login   <shielder@epitech.net>
 ##
 ## Started on  Mon Nov 21 09:49:22 2016 Maxime PICOT
-## Last update Fri Feb  3 13:42:34 2017 Maxime PICOT
+## Last update Fri Feb  3 15:19:31 2017 Maxime PICOT
 ##
 
 COMP	=	gcc
@@ -22,9 +22,9 @@ SRC	=	src/basic_funcs.c	\
 
 CFLAGS	=	-I./include/ -Wall -Wextra -g
 
-LDLIBS	=	-L./lib/my
+LDLIBS	=	
 
-LDFLAGS	=	-lmy -lmypf -lgnl
+LDFLAGS	=	
 
 OBJ	=	$(SRC:src/%.c=obj/%.o)
 

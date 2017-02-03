@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Fri Feb  3 14:16:08 2017 Maxime PICOT
+** Last update Fri Feb  3 15:30:14 2017 Maxime PICOT
 */
 
 #ifndef NAVY_H_
@@ -54,4 +54,5 @@ char	**setcoordstab();
 char	**nav_parser(char *path);
 char	**edit_map(char **map, int fd);
 t_coords	coords_parser(char *line);
+
 #endif /* !NAVY_H_ */

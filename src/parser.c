@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Fri Feb  3 14:48:34 2017 Maxime PICOT
+** Last update Fri Feb  3 15:33:19 2017 Maxime PICOT
 */
 
 #include "navy.h"
@@ -70,7 +70,7 @@ t_coords	coords_parser(char *line)
   int		i;
   
   i = 0;
-  coords = malloc(sizeof(t_coords) + 1);
+  (void)coords;
   if (line && my_strlen(line) == 7)
     {
       while (i < 6)
@@ -79,13 +79,13 @@ t_coords	coords_parser(char *line)
 	      && line[1] == ':' && line[4] == ':')
 	    {
 	      if (is_num(line[i]) == 1 && ((i == 1) || (i == 2)))
-		coords.fx = convertcoords(line[i], 1);
+		coords.fx = my_convertcoords(line[i], 1);
 	      else if (is_alpha(line[i]) == 1 && ((i == 1) || (i == 2)))
-		coords.fy = convertcoords(line[i], 2);
+		coords.fy = my_convertcoords(line[i], 2);
 	      else if (is_num(line[i]) == 1 && ((i == 4) || (i == 5)))
-		coords.lx = convertcoords(line[i], 1);
+		coords.lx = my_convertcoords(line[i], 1);
 	      else if (is_alpha(line[i]) == 1 && ((i == 4) || (i == 5)))
-		coords.ly = convertcoords(line[i], 2);
+		coords.ly = my_convertcoords(line[i], 2);
 	      i++;
 	    }
 	}
@@ -103,7 +103,8 @@ char	**edit_map(char **map, int fd)
     {
       if (i > 8)
 	return (NULL);
-      parse_my_line(line, map);
+      coords_parser(line, map);
       i++;
     }
+  return (map);
 }
