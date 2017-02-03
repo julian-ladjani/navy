@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Wed Feb  1 17:46:20 2017 Maxime PICOT
+** Last update Thu Feb  2 16:02:08 2017 Maxime PICOT
 */
 
 #ifndef NAVY_H_
@@ -38,7 +38,7 @@ typedef struct	s_coords
   int		fy;
   int		lx;
   int		ly;
-}
+}		t_coords;
 
 t_game		game;
 
