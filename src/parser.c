@@ -5,8 +5,10 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Fri Feb  3 12:08:21 2017 Maxime PICOT
+** Last update Fri Feb  3 14:48:34 2017 Maxime PICOT
 */
+
+#include "navy.h"
 
 char	**my_setmap()
 {
@@ -59,20 +61,16 @@ char 	**nav_parser(char *path)
   fd = open(path, O_RDONLY);
   map = my_setmap();
   map = edit_map(map, fd);
-  return (map)
+  return (map);
 }
 
 t_coords	coords_parser(char *line)
 {
   t_coords	coords;
   int		i;
-  int		j;
-  int		k;
   
   i = 0;
-  j = 0;
-  k = 0;
-  coords = set_coordstab();
+  coords = malloc(sizeof(t_coords) + 1);
   if (line && my_strlen(line) == 7)
     {
       while (i < 6)
@@ -92,7 +90,7 @@ t_coords	coords_parser(char *line)
 	    }
 	}
     }  
-  return (0);
+  return (coords);
 }
 
 char	**edit_map(char **map, int fd)
@@ -101,7 +99,7 @@ char	**edit_map(char **map, int fd)
   int	i;
 
   i = 0;
-  while ((line = my_getnextline(fd)) != NULL)
+  while ((line = get_next_line(fd)) != NULL)
     {
       if (i > 8)
 	return (NULL);
