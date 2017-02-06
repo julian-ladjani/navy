@@ -5,7 +5,7 @@
 ** Login   <shielder@epitech.net>
 ** 
 ** Started on  Wed Feb  1 14:46:53 2017 Maxime PICOT
-** Last update Wed Feb  1 16:41:28 2017 Maxime PICOT
+** Last update Fri Feb  3 15:00:02 2017 Maxime PICOT
 */
 
 #include "navy.h"
@@ -28,7 +28,7 @@ char	my_convertcoords(char coord, int type)
       coord--;
       if (coord > 8)
 	return ('\0');
-      return (base[coord]);
+      return (base[i]);
     }
   return ('\0');
 }

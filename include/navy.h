@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Wed Feb  1 17:46:20 2017 Maxime PICOT
+** Last update Fri Feb  3 15:30:14 2017 Maxime PICOT
 */
 
 #ifndef NAVY_H_
@@ -38,10 +38,21 @@ typedef struct	s_coords
   int		fy;
   int		lx;
   int		ly;
-}
+}		t_coords;
 
 t_game		game;
 
-int		printf(char *str, ...);
+void	display_pid();
+int	my_printf(char *str, ...);
+int	my_strlen(char *str);
+int	is_alpha(char c);
+int	is_num(char c);
+char	my_convertcoords(char coord, int type);
+char	*get_next_line(const int fd);
+char	**my_setmap();
+char	**setcoordstab();
+char	**nav_parser(char *path);
+char	**edit_map(char **map, int fd);
+t_coords	coords_parser(char *line);
 
 #endif /* !NAVY_H_ */

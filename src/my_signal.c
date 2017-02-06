@@ -5,8 +5,10 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Thu Feb  2 11:10:03 2017 Maxime PICOT
+** Last update Fri Feb  3 16:54:33 2017 Maxime PICOT
 */
+
+#include "navy.h"
 
 void	handler_usr1(int sig, siginfo_t *si, void *unised)
 {
@@ -19,7 +21,7 @@ void	handler_usr1(int sig, siginfo_t *si, void *unised)
 }
 
 void	handler_usr2(int sig, siginfo_t *si, void *unised)
-{ 
+{
   if (game.mode <= 1)
     game.mode++;
   else
