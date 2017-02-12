@@ -5,9 +5,10 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Sun Feb 12 05:23:28 2017 julian ladjani
+** Last update Sun Feb 12 05:30:45 2017 julian ladjani
 */
 
+#include <fcntl.h>
 #include "navy.h"
 
 char	**my_setmap()

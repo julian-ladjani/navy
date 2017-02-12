@@ -5,20 +5,15 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Sun Feb 12 04:40:21 2017 julian ladjani
+** Last update Sun Feb 12 05:41:29 2017 julian ladjani
 */
 
 #ifndef NAVY_H_
 # define NAVY_H_
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <signal.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
+#include <stdarg.h>
+#include <signal.h>
+#include <stdlib.h>
 
 # define READ_SIZE 32
 
@@ -46,6 +41,8 @@ typedef struct	s_coords
 t_game		game;
 
 void		display_pid();
+
+unsigned int	my_getnbru(char *str);
 
 int		my_printf(char *str, ...);
 int		my_strlen(char *str);

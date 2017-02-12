@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
-** Last update Sun Feb 12 04:25:12 2017 julian ladjani
+** Last update Sun Feb 12 05:40:47 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -22,6 +22,7 @@ int		player_connect(char *spid)
 {
   pid_t		opid;
 
+  opid = my_getnbru(spid);
   kill(opid, SIGUSR1);
   while (game.opid == 0);
   my_printf("successfully connected");
@@ -32,16 +33,19 @@ int		player_connect(char *spid)
 
 int		main(int ac, char **av)
 {
-  t_game	game;
   char		**map;
   char		**omap;
 
   display_pid();
-  if (ac == 2 && (map = nav_parser(av[1])) != NULL) // player 1 -> binaire + coords des bateaux
+  if ((omap = my_setmap()) == NULL)
+    return (84);
+  if (ac == 2 && (map = nav_parser(av[1])) != NULL)
     player_waitconnect();
-  else if (ac == 3 && (map = nav_parser(av[2])) != NULL) // player 2 -> binaire + pid du P1 + coords
-    if (player_connect(av[1]) == 0)
-      return (84);
+  else if (ac == 3 && (map = nav_parser(av[2])) != NULL)
+    {
+      if (player_connect(av[1]) == 0)
+	return (84);
+    }
   else
     return (84);
 }

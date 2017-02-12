@@ -5,8 +5,10 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Sun Feb 12 00:44:27 2017 julian ladjani
+** Last update Sun Feb 12 05:27:09 2017 julian ladjani
 */
+
+#include "navy.h"
 
 void	my_turn()
 {

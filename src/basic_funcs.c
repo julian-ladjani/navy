@@ -5,7 +5,7 @@
 ** Login   <shielder@epitech.net>
 ** 
 ** Started on  Thu Feb  2 14:00:20 2017 Maxime PICOT
-** Last update Fri Feb  3 16:52:21 2017 Maxime PICOT
+** Last update Sun Feb 12 05:40:37 2017 julian ladjani
 */
 
 int	my_strlen(char *str)
@@ -30,4 +30,21 @@ int	is_num(char c)
   if (c >= '1' && c <= '8')
     return (1);
   return (0);
+}
+
+int		my_getnbru(char *str)
+{
+  unsigned int	digit;
+  int		counter;
+
+  digit = 0;
+  counter = 0;
+  while (*str >= '0' && *str <= '9' && *str != '\0')
+    {
+      digit = digit * 10;
+      digit = digit + *str - 48;
+      str++;
+      counter++;
+    }
+  return (digit);
 }

@@ -5,13 +5,16 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Sun Feb 12 00:17:43 2017 julian ladjani
+** Last update Sun Feb 12 05:36:53 2017 julian ladjani
 */
 
+#include <unistd.h>
 #include "navy.h"
 
 void	handler_usr1(int sig, siginfo_t *si, void *unised)
 {
+  (void)sig;
+  (void)unised;
   if (game.opid == 0)
     {
       game.opid = si->si_pid;
@@ -27,6 +30,8 @@ void	handler_usr1(int sig, siginfo_t *si, void *unised)
 
 void	handler_usr2(int sig, siginfo_t *si, void *unised)
 {
+  (void)sig;
+  (void)unised;
   if (game.opid == 0)
     game.opid = si->si_pid;
   else if (game.mode <= 1)
