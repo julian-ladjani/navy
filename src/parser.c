@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Fri Feb  3 16:54:55 2017 Maxime PICOT
+** Last update Sun Feb 12 05:23:28 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -17,13 +17,14 @@ char	**my_setmap()
   int	j;
 
   i = 0;
+  j = 0;
   if ((map = malloc(sizeof(char *) * 9)) == NULL)
     return (NULL);
-  while (i < 9)
+  while (i < 8)
     {
       if ((map[i] = malloc(sizeof(char) * 9)) == NULL)
 	return (NULL);
-      while (j < 9)
+      while (j < 8)
 	{
 	  map[i][j] = '.';
 	  j++;
@@ -32,6 +33,7 @@ char	**my_setmap()
       i++;
       j = 0;
     }
+  map[i] = NULL;
   return (map);
 }
 
@@ -58,7 +60,8 @@ char 	**nav_parser(char *path)
   char	**map;
   int	fd;
 
-  fd = open(path, O_RDONLY);
+  if ((fd = open(path, O_RDONLY)) < 0)
+    return (NULL);
   map = my_setmap();
   map = edit_map(map, fd);
   return (map);
@@ -70,7 +73,6 @@ t_coords	coords_parser(char *line)
   int		i;
 
   i = 0;
-  (void)coords;
   if (line && my_strlen(line) == 7)
     {
       while (i < 6)
@@ -97,16 +99,16 @@ char		**edit_map(char **map, int fd)
 {
   char		*line;
   int		i;
-  t_coords	coords;
 
-  (void)coords;
   i = 0;
   while ((line = get_next_line(fd)) != NULL)
     {
       if (i > 8)
 	return (NULL);
-      coords_parser(line);
+      //coords_parser(line);
       i++;
     }
+  if (i < 8)
+    return (NULL);
   return (map);
 }

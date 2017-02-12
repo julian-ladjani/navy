@@ -5,30 +5,37 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Fri Feb  3 16:54:33 2017 Maxime PICOT
+** Last update Sun Feb 12 00:17:43 2017 julian ladjani
 */
 
 #include "navy.h"
 
 void	handler_usr1(int sig, siginfo_t *si, void *unised)
 {
-  if (game.mode == 0)
-    kill(game.opid, SIGUSR1);
-  if (game.mode == 1)
-    game.posx++;
-  if (game.mode == 2)
-    game.posy++;
+  if (game.opid == 0)
+    {
+      game.opid = si->si_pid;
+      kill(game.opid, SIGUSR2);
+    }
+  if (game.mode == 1 && si->si_pid == game.opid)
+    game.poshit[0] += 1;
+  else if (game.mode == 2 && si->si_pid == game.opid)
+    game.poshit[1] += 1;
+  else if (game.mode == 0 && si->si_pid == game.opid)
+    game.poshit[2] += 1;
 }
 
 void	handler_usr2(int sig, siginfo_t *si, void *unised)
 {
-  if (game.mode <= 1)
+  if (game.opid == 0)
+    game.opid = si->si_pid;
+  else if (game.mode <= 1)
     game.mode++;
   else
     game.mode = 0;
 }
 
-void	my_sendpos()
+void	my_sendpos(int posx, int posy)
 {
   int	x;
   int	y;
@@ -37,7 +44,7 @@ void	my_sendpos()
   y = 0;
   kill(game.opid, SIGUSR2);
   usleep(50);
-  while (x < game.posx)
+  while (x < posx)
     {
       kill(game.opid, SIGUSR1);
       x++;
@@ -45,7 +52,7 @@ void	my_sendpos()
     }
   kill(game.opid, SIGUSR2);
   usleep(50);
-  while (y < game.posy)
+  while (y < posy)
     {
       kill(game.opid, SIGUSR1);
       y++;
@@ -54,9 +61,17 @@ void	my_sendpos()
   kill(game.opid, SIGUSR2);
 }
 
-void	my_sendidle()
+void	send_hit(int hit)
 {
-  kill(game.opid, SIGUSR1);
+  int	i;
+
+  i = 0;
+  while (i < hit)
+    {
+      kill(game.opid, SIGUSR1);
+      i++;
+      usleep(50);
+    }
 }
 
 void			prepare_my_signal()

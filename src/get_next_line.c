@@ -5,10 +5,13 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Mon Jan  2 15:00:28 2017 julian ladjani
-** Last update Tue Jan 31 16:24:01 2017 julian ladjani
+** Last update Sun Feb 12 05:19:51 2017 julian ladjani
 */
 
-#include <navy.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "navy.h"
 
 char		*my_strloc(char *buff)
 {
@@ -16,6 +19,8 @@ char		*my_strloc(char *buff)
   int		i;
 
   i = 0;
+  if (buff && buff[0] == '\x7f')
+    return (NULL);
   while (buff && buff[i] != '\0')
     i++;
   if ((dest = malloc((i + READ_SIZE + 1) * sizeof(char))) == NULL)

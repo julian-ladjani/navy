@@ -5,7 +5,7 @@
 ## Login   <shielder@epitech.net>
 ##
 ## Started on  Mon Nov 21 09:49:22 2016 Maxime PICOT
-## Last update Fri Feb  3 16:53:23 2017 Maxime PICOT
+## Last update Sun Feb 12 04:16:10 2017 julian ladjani
 ##
 
 COMP	=	gcc
@@ -20,7 +20,7 @@ SRC	=	src/basic_funcs.c	\
 
 CFLAGS	=	-I./include/ -Wall -Wextra -g
 
-LDLIBS	=	
+LDLIBS	=	-L./lib/ -lmy_pf
 
 LDFLAGS	=	
 
