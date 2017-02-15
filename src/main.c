@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
-** Last update Sun Feb 12 05:40:47 2017 julian ladjani
+** Last update Wed Feb 15 05:45:23 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -13,8 +13,9 @@
 void		player_waitconnect()
 {
   my_printf("waiting for enemy connection...\n\n");
-  while (game.opid == 0);
-  kill(game.opid, SIGUSR2);
+  while (g_game.opid == 0);
+  kill(g_game.opid, SIGUSR2);
+  g_game.poshit[3] = 1;
   my_printf("enemy connected\n\n");
 }
 
@@ -24,12 +25,24 @@ int		player_connect(char *spid)
 
   opid = my_getnbru(spid);
   kill(opid, SIGUSR1);
-  while (game.opid == 0);
-  my_printf("successfully connected");
+  while (g_game.opid == 0);
+  my_printf("successfully connected\n");
+  g_game.poshit[3] = 2;
   return (1);
 }
 
-
+int		prepare_my_struct()
+{
+  g_game.opid = 0;
+  g_game.mode = NONE;
+  if ((g_game.poshit = malloc(4 * sizeof(int))) == NULL)
+    return (0);
+  g_game.poshit[0] = 0;
+  g_game.poshit[1] = 0;
+  g_game.poshit[2] = 0;
+  g_game.poshit[3] = 0;
+  return (1);
+}
 
 int		main(int ac, char **av)
 {
@@ -37,6 +50,9 @@ int		main(int ac, char **av)
   char		**omap;
 
   display_pid();
+  prepare_my_signal();
+  if (prepare_my_struct() == 0)
+    return (84);
   if ((omap = my_setmap()) == NULL)
     return (84);
   if (ac == 2 && (map = nav_parser(av[1])) != NULL)

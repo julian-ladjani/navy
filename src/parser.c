@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:16:15 2017 Maxime PICOT
-** Last update Sun Feb 12 05:30:45 2017 julian ladjani
+** Last update Tue Feb 14 12:50:42 2017 julian ladjani
 */
 
 #include <fcntl.h>
@@ -38,24 +38,6 @@ char	**my_setmap()
   return (map);
 }
 
-char	**set_coordstab()
-{
-  char	**arr;
-  int	i;
-
-  i = 0;
-  if ((arr = malloc(sizeof(char *) * 3)) == NULL)
-    return (NULL);
-  arr[3] = NULL;
-  while (i < 3)
-    {
-      if ((arr[i] = malloc(sizeof(char) * 3)) == NULL)
-	return (NULL);
-      i++;
-    }
-  return (arr);
-}
-
 char 	**nav_parser(char *path)
 {
   char	**map;
@@ -71,27 +53,13 @@ char 	**nav_parser(char *path)
 t_coords	coords_parser(char *line)
 {
   t_coords	coords;
-  int		i;
 
-  i = 0;
-  if (line && my_strlen(line) == 7)
+  coords = init_coords();
+  if (line && my_strlen(line) == 7 && line[1] == ':' && line[4] == ':')
     {
-      while (i < 6)
-	{
-	  if (line[0] >= '2' && line[0] <= '5'
-	      && line[1] == ':' && line[4] == ':')
-	    {
-	      if (is_num(line[i]) == 1 && ((i == 1) || (i == 2)))
-		coords.fx = my_convertcoords(line[i], 1);
-	      else if (is_alpha(line[i]) == 1 && ((i == 1) || (i == 2)))
-		coords.fy = my_convertcoords(line[i], 2);
-	      else if (is_num(line[i]) == 1 && ((i == 4) || (i == 5)))
-		coords.lx = my_convertcoords(line[i], 1);
-	      else if (is_alpha(line[i]) == 1 && ((i == 4) || (i == 5)))
-		coords.ly = my_convertcoords(line[i], 2);
-	      i++;
-	    }
-	}
+      coords.boat = line[0] - 48;
+      my_coords(line[2], line[3], &coords.fx, &coords.fy);
+      my_coords(line[5], line[6], &coords.lx, &coords.ly);
     }
   return (coords);
 }
@@ -100,16 +68,19 @@ char		**edit_map(char **map, int fd)
 {
   char		*line;
   int		i;
+  t_coords	coords;
 
   i = 0;
   while ((line = get_next_line(fd)) != NULL)
     {
-      if (i > 8)
+      if (i > 4)
 	return (NULL);
-      //coords_parser(line);
+      coords = coords_parser(line);
+      if ((map = coord_in_map(coords, map)) == NULL)
+	return (NULL);
       i++;
     }
-  if (i < 8)
+  if (i < 4)
     return (NULL);
   return (map);
 }

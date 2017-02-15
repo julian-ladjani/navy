@@ -5,10 +5,12 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Thu Feb  2 15:11:52 2017 julian ladjani
-** Last update Thu Feb  2 15:12:27 2017 julian ladjani
+** Last update Wed Feb 15 01:59:53 2017 julian ladjani
 */
 
-int	game(char **map)
+#include "navy.h"
+
+int	check_victory(t_map *maps)
 {
-  
+  return (0);
 }

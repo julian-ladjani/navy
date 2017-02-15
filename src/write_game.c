@@ -5,8 +5,10 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sun Feb 12 00:33:04 2017 julian ladjani
-** Last update Sun Feb 12 00:33:45 2017 julian ladjani
+** Last update Tue Feb 14 03:35:13 2017 julian ladjani
 */
+
+#include "navy.h"
 
 void	write_map(char **map)
 {
@@ -17,7 +19,9 @@ void	write_map(char **map)
   my_printf("-+---------------\n");
   while (map[i] != NULL)
     {
-      my_printf("%d|%s\n", i + 1, map[i]);
+      my_printf("%d|%c %c", i + 1, map[i][0], map[i][1]);
+      my_printf(" %c %c %c %c", map[i][2], map[i][3], map[i][4], map[i][5]);
+      my_printf(" %c %c\n", map[i][6], map[i][7]);
       i++;
     }
 }

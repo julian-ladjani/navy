@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Sun Feb 12 05:27:09 2017 julian ladjani
+** Last update Wed Feb 15 05:27:24 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -17,8 +17,8 @@ void	my_turn()
   int	posy;
 
   my_printf("attack: ");
-  while ((pos == my_getnextline(0)) == NULL);
-  if (wrong)
+  while ((pos = get_next_line(0)) == NULL);
+  if (my_strlen(pos) > 1 && pos[0] > 0 && pos[0] < 9 && pos[1] > 0)
     {
       my_printf("wrong position\n");
       my_turn();
@@ -26,34 +26,34 @@ void	my_turn()
   else
     {
       my_printf("%s:", pos);
-      send_pos(posx, posy);
+      start_sender(SENDPOSX);
     }
 }
 
 void	his_turn(t_map *map)
 {
-OB  my_printf("waiting for enemy's attack...\n");
-  while (game.poshit[0] == 0 || game.poshit[1] == 0);
-  if (game.poshit[0] < 9 && game.poshit[1] < 9)
+  my_printf("waiting for enemy's attack...\n");
+  while (g_game.poshit[0] == 0 || g_game.poshit[1] == 0);
+  if (g_game.poshit[0] < 9 && g_game.poshit[1] < 9)
     {
-      if (isnumber(map->map[game.poshit[1]][game.poshit[0]]))
+      if (is_num(map->map[g_game.poshit[1]][g_game.poshit[0]]))
         {
-	  my_printf("%s: hit\n", sended_pos());
-          send_hit(1);
+	  my_printf("%s: hit\n", "sended_pos()");
+          start_sender(SENDHIT);
         }
       else
 	{
-	  my_printf("%s: missed\n", sended_pos());
-	  send_hit(2);
+	  my_printf("%s: missed\n", "sended_pos()");
+	  start_sender(SENDHIT);
 	}
     }
   else
     {
       my_printf("ERROR: wrong\n");
-      send_hit(3);
+      start_sender(SENDHIT);
     }
-  game.poshit[0] = 0;
-  game.poshit[1] = 0;
+  g_game.poshit[0] = 0;
+  g_game.poshit[1] = 0;
 }
 
 void	the_navy_game(t_map *map)
@@ -65,7 +65,7 @@ void	the_navy_game(t_map *map)
 int	the_game_loop(t_map *map)
 {
   int	value;
-  while ((value = check_victory) == 0)
+  while ((value = check_victory(map)) == 0)
     the_navy_game(map);
   return (value);
 }

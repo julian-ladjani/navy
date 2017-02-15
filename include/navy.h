@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Sun Feb 12 05:41:29 2017 julian ladjani
+** Last update Wed Feb 15 05:23:50 2017 julian ladjani
 */
 
 #ifndef NAVY_H_
@@ -17,10 +17,21 @@
 
 # define READ_SIZE 32
 
+typedef enum	e_mode
+  {
+    NONE,
+    RECPOSX,
+    RECPOSY,
+    RECHIT,
+    SENDPOSX,
+    SENDPOSY,
+    SENDHIT
+  }		t_mode;
+
 typedef struct	s_game
 {
   int		*poshit;
-  int		mode;
+  t_mode	mode;
   pid_t		opid;
 }		t_game;
 
@@ -36,11 +47,21 @@ typedef struct	s_coords
   int		fy;
   int		lx;
   int		ly;
+  int		boat;
 }		t_coords;
 
-t_game		game;
+t_game		g_game;
 
 void		display_pid();
+void		my_coords(char c1, char c2, int *posx, int *posy);
+void		write_map(char **map);
+void		handler_usr2(int sig, siginfo_t *si, void *unised);
+void		handler_usr1(int sig, siginfo_t *si, void *unised);
+void		handler_action();
+void		start_sender(int type);
+void		sender_action();
+void		sender_send(int type);
+void		sender_changemode();
 
 unsigned int	my_getnbru(char *str);
 
@@ -48,14 +69,19 @@ int		my_printf(char *str, ...);
 int		my_strlen(char *str);
 int		is_alpha(char c);
 int		is_num(char c);
+int		check_boat(char **map, int boat);
 
 char		my_convertcoords(char coord, int type);
 char		*get_next_line(const int fd);
 char		**my_setmap();
-char		**setcoordstab();
 char		**nav_parser(char *path);
 char		**edit_map(char **map, int fd);
+char		**coord_in_map(t_coords coords, char **map);
+char		**set_map_y(t_coords *coords, char **map);
+char		**set_map_x(t_coords *coords, char **map);
+
 
 t_coords	coords_parser(char *line);
+t_coords	init_coords();
 
 #endif /* !NAVY_H_ */
