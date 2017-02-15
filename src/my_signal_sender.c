@@ -5,13 +5,13 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Wed Feb 15 05:22:06 2017 julian ladjani
+** Last update Wed Feb 15 20:26:22 2017 julian ladjani
 */
 
 #include <unistd.h>
 #include "navy.h"
 
-void	start_sender(int type)
+void	start_sender(int type, int value)
 {
   if (type == SENDPOSX)
     {
@@ -20,6 +20,7 @@ void	start_sender(int type)
     }
   else if (type == SENDHIT)
     {
+      g_game.poshit[2] = value;
       g_game.mode = SENDHIT;
       sender_send(2);
     }

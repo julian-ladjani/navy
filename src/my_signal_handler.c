@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Wed Feb 15 05:14:06 2017 julian ladjani
+** Last update Wed Feb 15 06:45:33 2017 julian ladjani
 */
 
 #include <unistd.h>
@@ -13,6 +13,8 @@
 
 void	handler_usr1(int sig, siginfo_t *si, void *unised)
 {
+  (void)sig;
+  (void)unised;
   if (g_game.opid == 0)
     {
       g_game.opid = si->si_pid;
@@ -31,7 +33,7 @@ void	handler_action()
 {
   if (g_game.mode == RECPOSX)
     g_game.poshit[0] += 1;
-  else if (g_game.mode = RECPOSY)
+  else if (g_game.mode == RECPOSY)
     g_game.poshit[1] += 1;
   else if (g_game.mode == RECHIT)
     g_game.poshit[2] += 1;

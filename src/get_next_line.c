@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Mon Jan  2 15:00:28 2017 julian ladjani
-** Last update Mon Feb 13 18:35:47 2017 julian ladjani
+** Last update Wed Feb 15 23:21:03 2017 julian ladjani
 */
 
 #include <stdio.h>
@@ -13,12 +13,13 @@
 #include <unistd.h>
 #include "navy.h"
 
-char		*my_strloc(char *buff, int offset)
+char            *my_strloc(char *buff, int offset)
 {
-  char		*dest;
-  int		i;
+  char          *dest;
+  int           i;
 
   i = 0;
+  buff[offset] = '\0';
   if ((dest = malloc((offset + READ_SIZE + 1) * sizeof(char))) == NULL)
     return (NULL);
   i = 0;
@@ -40,23 +41,31 @@ char		*my_line(char *buff, int *nbchar, int last)
 
   i = 0;
   j = 0;
-  while (buff && buff[i] != '\n' && buff[i] != '\0')
-    i += 1;
-  if (buff && i > 0 && (buff[i] != '\0' || (last == 1 && i > 0)))
+  while (buff[i] != '\n' && buff[i] != '\0')
+    i++;
+  if (buff && (buff[i] != '\0' || (last == 1 && i > 0)))
     {
       if ((temp = malloc((i + 1) * sizeof(char))) == NULL)
-	return (NULL);
+        return (NULL);
       while (j < i && buff[j] != '\0')
-	{
-	  temp[j] = buff[j];
-	  j += 1;
-	}
+        {
+          temp[j] = buff[j];
+          j++;
+        }
       temp[j] = '\0';
-      j += 1;
+      j++;
       *nbchar += j;
       return (temp);
     }
   return (NULL);
+}
+
+void		gnl_clear(char **buff, int *offset, int *nbchar)
+{
+  *offset = 0;
+  *nbchar = 0;
+  if (*buff != NULL)
+    free(*buff);
 }
 
 char		*get_next_line(const int fd)
@@ -77,7 +86,6 @@ char		*get_next_line(const int fd)
     return (line);
   while ((len = read(fd, buff + offset, READ_SIZE)) > 0 && (offset += len) > 0)
     {
-      buff[offset] = '\0';
       if ((buff = my_strloc(buff, offset)) == NULL)
 	return (NULL);
       if ((line = my_line(buff + nbchar, &nbchar, 0)) != NULL)
@@ -85,5 +93,6 @@ char		*get_next_line(const int fd)
     }
   if ((line = my_line(buff + nbchar, &nbchar, 1)) != NULL)
     return (line);
+  gnl_clear(&buff, &offset, &nbchar);
   return (NULL);
 }

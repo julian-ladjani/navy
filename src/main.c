@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
-** Last update Wed Feb 15 05:45:23 2017 julian ladjani
+** Last update Wed Feb 15 22:38:30 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -64,4 +64,5 @@ int		main(int ac, char **av)
     }
   else
     return (84);
+  the_game(map, omap);
 }

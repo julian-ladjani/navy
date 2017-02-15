@@ -5,7 +5,7 @@
 ## Login   <shielder@epitech.net>
 ##
 ## Started on  Mon Nov 21 09:49:22 2016 Maxime PICOT
-## Last update Wed Feb 15 05:08:03 2017 julian ladjani
+## Last update Wed Feb 15 06:33:33 2017 julian ladjani
 ##
 
 COMP	=	gcc
@@ -22,6 +22,7 @@ SRC	=	src/basic_funcs.c	\
 		src/parser2.c		\
 		src/write_game.c	\
 		src/prog.c		\
+		src/check_map.c		\
 		src/main.c		
 
 CFLAGS	=	-I./include/ -Wall -Wextra -g
