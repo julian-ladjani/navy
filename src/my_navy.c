@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Thu Feb  2 15:11:52 2017 julian ladjani
-** Last update Thu Feb 16 03:07:50 2017 julian ladjani
+** Last update Thu Feb 16 11:07:01 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -13,6 +13,7 @@
 int	the_navy_game_p2(t_map *map)
 {
   char	*pos;
+  int	value;
 
   g_game.mode = RECPOSX;
   his_turn(map);
