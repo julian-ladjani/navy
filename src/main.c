@@ -5,9 +5,10 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
-** Last update Thu Feb 16 11:28:45 2017 julian ladjani
+** Last update Thu Feb 16 11:43:01 2017 Maxime PICOT
 */
 
+#include <unistd.h>
 #include "navy.h"
 
 void		player_waitconnect()
