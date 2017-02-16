@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Thu Feb 16 15:44:48 2017 Maxime PICOT
+** Last update Thu Feb 16 17:59:50 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -79,6 +79,7 @@ char	*my_turn(t_map *map)
   else
     {
       my_putstr("wrong position\n");
+      free(pos);
       my_turn(map);
     }
   return (pos);
