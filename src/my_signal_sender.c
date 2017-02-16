@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Wed Feb 15 20:26:22 2017 julian ladjani
+** Last update Thu Feb 16 00:33:26 2017 julian ladjani
 */
 
 #include <unistd.h>
@@ -55,7 +55,6 @@ void	sender_send(int type)
 {
   g_game.poshit[type] -= 1;
   kill(g_game.opid, SIGUSR1);
-  pause();
 }
 
 void	sender_changemode()
@@ -64,8 +63,10 @@ void	sender_changemode()
     {
       g_game.mode = SENDPOSY;
       kill(g_game.opid, SIGUSR2);
-      pause();
     }
   else if (g_game.mode == SENDPOSY || g_game.mode == SENDHIT)
-    g_game.mode = NONE;
+    {
+      g_game.mode = NONE;
+      kill(g_game.opid, SIGUSR2);
+    }
 }

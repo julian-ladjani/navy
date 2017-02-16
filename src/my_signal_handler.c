@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 16:38:41 2017 julian ladjani
-** Last update Wed Feb 15 06:45:33 2017 julian ladjani
+** Last update Thu Feb 16 00:33:02 2017 julian ladjani
 */
 
 #include <unistd.h>
@@ -16,10 +16,7 @@ void	handler_usr1(int sig, siginfo_t *si, void *unised)
   (void)sig;
   (void)unised;
   if (g_game.opid == 0)
-    {
-      g_game.opid = si->si_pid;
-      kill(g_game.opid, SIGUSR2);
-    }
+    g_game.opid = si->si_pid;
   else if (g_game.opid == si->si_pid)
     {
       if (g_game.mode >= SENDPOSX && g_game.mode <= SENDHIT)
@@ -38,7 +35,6 @@ void	handler_action()
   else if (g_game.mode == RECHIT)
     g_game.poshit[2] += 1;
   kill(g_game.opid, SIGUSR1);
-  pause();
 }
 
 void	handler_usr2(int sig, siginfo_t *si, void *unised)
@@ -51,7 +47,6 @@ void	handler_usr2(int sig, siginfo_t *si, void *unised)
     {
       g_game.mode += 1;
       kill(g_game.opid, SIGUSR1);
-      pause();
     }
   else if ((g_game.mode == RECPOSY || g_game.mode == RECHIT)
 	   && g_game.opid == si->si_pid)

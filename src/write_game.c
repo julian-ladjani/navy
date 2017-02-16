@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sun Feb 12 00:33:04 2017 julian ladjani
-** Last update Tue Feb 14 03:35:13 2017 julian ladjani
+** Last update Thu Feb 16 00:56:20 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -33,4 +33,5 @@ void	write_play(char **map, char **omap)
   my_printf("\n");
   my_printf("enemy's positions:\n");
   write_map(omap);
+  my_printf("\n");
 }

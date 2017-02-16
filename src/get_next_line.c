@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Mon Jan  2 15:00:28 2017 julian ladjani
-** Last update Wed Feb 15 23:21:03 2017 julian ladjani
+** Last update Wed Feb 15 23:55:03 2017 julian ladjani
 */
 
 #include <stdio.h>
@@ -20,7 +20,7 @@ char            *my_strloc(char *buff, int offset)
 
   i = 0;
   buff[offset] = '\0';
-  if ((dest = malloc((offset + READ_SIZE + 1) * sizeof(char))) == NULL)
+  if ((dest = malloc((offset + READ_SIZE + 2) * sizeof(char))) == NULL)
     return (NULL);
   i = 0;
   while (buff && buff[i] != '\0')
@@ -64,8 +64,7 @@ void		gnl_clear(char **buff, int *offset, int *nbchar)
 {
   *offset = 0;
   *nbchar = 0;
-  if (*buff != NULL)
-    free(*buff);
+  *buff = NULL;
 }
 
 char		*get_next_line(const int fd)

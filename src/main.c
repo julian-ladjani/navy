@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
-** Last update Wed Feb 15 22:38:30 2017 julian ladjani
+** Last update Wed Feb 15 23:28:27 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -26,7 +26,7 @@ int		player_connect(char *spid)
   opid = my_getnbru(spid);
   kill(opid, SIGUSR1);
   while (g_game.opid == 0);
-  my_printf("successfully connected\n");
+  my_printf("successfully connected\n\n");
   g_game.poshit[3] = 2;
   return (1);
 }
