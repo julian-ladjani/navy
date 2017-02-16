@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Thu Feb 16 02:27:03 2017 julian ladjani
+** Last update Thu Feb 16 15:44:48 2017 Maxime PICOT
 */
 
 #include "navy.h"
@@ -67,9 +67,8 @@ char	*my_turn(t_map *map)
 {
   char	*pos;
 
-  my_putstr("attack: \e[3m");
+  my_putstr("attack: ");
   while ((pos = get_next_line(0)) == NULL);
-  my_putstr("\e[0m");
   if (my_strlen(pos) == 2 &&
       check_getpos(pos[0], pos[1]) == 0)
     {
