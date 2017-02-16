@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
-** Last update Thu Feb 16 03:00:39 2017 julian ladjani
+** Last update Thu Feb 16 11:28:45 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -17,6 +17,7 @@ void		player_waitconnect()
   kill(g_game.opid, SIGUSR2);
   g_game.poshit[3] = 1;
   my_printf("enemy connected\n\n");
+  usleep(100);
 }
 
 int		player_connect(char *spid)
@@ -28,6 +29,7 @@ int		player_connect(char *spid)
   while (g_game.opid == 0);
   my_printf("successfully connected\n\n");
   g_game.poshit[3] = 2;
+  usleep(100);
   return (1);
 }
 
@@ -48,6 +50,7 @@ int		main(int ac, char **av)
 {
   char		**map;
   char		**omap;
+  int		value;
 
   display_pid();
   prepare_my_signal();
@@ -64,5 +67,6 @@ int		main(int ac, char **av)
     }
   else
     return (84);
-  return (the_game(map, omap));
+  value = the_game(map, omap);
+  return (value);
 }

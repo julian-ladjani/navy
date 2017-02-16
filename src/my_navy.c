@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Thu Feb  2 15:11:52 2017 julian ladjani
-** Last update Thu Feb 16 11:07:01 2017 julian ladjani
+** Last update Thu Feb 16 11:26:35 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -74,7 +74,7 @@ int	the_game(char **map, char **omap)
       my_printf("I won\n");
       return (0);
     }
-  if (value == -1)
+  else if (value == -1)
     {
       my_printf("Enemy won\n");
       return (1);
