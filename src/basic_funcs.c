@@ -5,7 +5,7 @@
 ** Login   <shielder@epitech.net>
 ** 
 ** Started on  Thu Feb  2 14:00:20 2017 Maxime PICOT
-** Last update Thu Feb 16 02:52:06 2017 julian ladjani
+** Last update Thu Feb 16 11:39:49 2017 julian ladjani
 */
 
 #include <unistd.h>
@@ -56,6 +56,7 @@ void		my_putstr(char *str)
 {
   int		i;
 
+  i = 0;
   while (str[i++] != '\0');
   write(1, str, i);
 }
