@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Thu Feb 16 17:59:50 2017 julian ladjani
+** Last update Thu Feb 16 18:49:44 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -87,7 +87,6 @@ char	*my_turn(t_map *map)
 
 void	his_turn(t_map *map)
 {
-  write_play(map->map, map->omap);
   my_putstr("waiting for enemy's attack...\n");
   while (g_game.mode != NONE);
   if (check_getpos(my_convertcoords(g_game.poshit[0], 2),

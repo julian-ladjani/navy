@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Wed Feb 15 06:29:32 2017 julian ladjani
-** Last update Thu Feb 16 18:14:16 2017 julian ladjani
+** Last update Thu Feb 16 18:55:29 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -15,16 +15,18 @@ int     check_victory(t_map *maps)
   int	me;
   int	other;
 
-  me = check_map(maps->map, 14);
-  other = check_map(maps->omap, 14);
+  me = check_map(maps->map, 2);
+  other = check_map(maps->omap, 2);
   if (me == 0)
     {
-      write_play(maps->map, maps->omap);
+      if (g_game.poshit[3] == 2)
+	write_play(maps->map, maps->omap);
       return (-1);
     }
   else if (other == 0)
     {
-      write_play(maps->map, maps->omap);
+      if (g_game.poshit[3] == 1)
+	write_play(maps->map, maps->omap);
       return (1);
     }
   return (0);
