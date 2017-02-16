@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Thu Feb 16 01:45:08 2017 julian ladjani
+** Last update Thu Feb 16 02:20:58 2017 julian ladjani
 */
 
 #ifndef NAVY_H_
@@ -68,6 +68,8 @@ void		the_navy_game_p2(t_map *map);
 void		the_navy_game_p1(t_map *map);
 void		check_hit(t_map *map, char *pos);
 void		his_turn(t_map *map);
+void		sended_pos(int type);
+void		my_putstr(char *str);
 
 unsigned int	my_getnbru(char *str);
 
@@ -84,7 +86,6 @@ int		check_getpos(char posx, char posy);
 
 char		my_convertcoords(char coord, int type);
 char		*get_next_line(const int fd);
-char		*sended_pos(int posx, int posy);
 char		*my_turn(t_map *map);
 char		**my_setmap();
 char		**nav_parser(char *path);

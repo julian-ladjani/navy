@@ -5,7 +5,7 @@
 ** Login   <shielder@epitech.net>
 ** 
 ** Started on  Thu Feb  2 14:00:20 2017 Maxime PICOT
-** Last update Sun Feb 12 05:40:37 2017 julian ladjani
+** Last update Thu Feb 16 02:19:31 2017 julian ladjani
 */
 
 int	my_strlen(char *str)
@@ -47,4 +47,12 @@ int		my_getnbru(char *str)
       counter++;
     }
   return (digit);
+}
+
+void		my_putstr(char *str)
+{
+  int		i;
+
+  while (str[i++] != '\0');
+  write(1, str, i);
 }

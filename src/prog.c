@@ -5,21 +5,27 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Thu Feb 16 01:41:17 2017 julian ladjani
+** Last update Thu Feb 16 02:27:03 2017 julian ladjani
 */
 
 #include "navy.h"
 
-char	*sended_pos(int posx, int posy)
+void	sended_pos(int type)
 {
-  char	*pos;
+  char	posx;
+  char	posy;
 
-  pos = malloc(3 * sizeof(char));
-  my_printf("%d\n", posx);
-  pos[0] = my_convertcoords(posx, 2);
-  pos[1] = posy + 48;
-  pos[2] = '\0';
-  return (pos);
+  if (type < 3)
+    {
+      posx = g_game.poshit[0] + 64;
+      posy = g_game.poshit[1] + 48;
+    }
+  if (type == 1)
+    my_printf("%c%c: hit\n\n", posx, posy);
+  else if (type == 2)
+    my_printf("%c%c: miss\n\n", posx, posy);
+  else
+    my_printf("ERROR: wrong\n\n");
 }
 
 int	check_getpos(char posx, char posy)
@@ -49,7 +55,7 @@ void	check_hit(t_map *map, char *pos)
       else if (g_game.poshit[2] == 2)
         {
           if (map->omap[posy][posx] != 'x')
-            map->omap[posy][posx] = '0';
+            map->omap[posy][posx] = 'o';
           my_printf("%s: missed\n\n", pos);
         }
       else
@@ -61,9 +67,9 @@ char	*my_turn(t_map *map)
 {
   char	*pos;
 
-  my_printf("attack: \e[3m");
+  my_putstr("attack: \e[3m");
   while ((pos = get_next_line(0)) == NULL);
-  my_printf("\e[0m");
+  my_putstr("\e[0m");
   if (my_strlen(pos) == 2 &&
       check_getpos(pos[0], pos[1]) == 0)
     {
@@ -73,7 +79,7 @@ char	*my_turn(t_map *map)
     }
   else
     {
-      my_printf("wrong position\n");
+      my_putstr("wrong position\n");
       my_turn(map);
     }
   return (pos);
@@ -82,7 +88,7 @@ char	*my_turn(t_map *map)
 void	his_turn(t_map *map)
 {
   write_play(map->map, map->omap);
-  my_printf("waiting for enemy's attack...\n");
+  my_putstr("waiting for enemy's attack...\n");
   while (g_game.mode != NONE);
   if (check_getpos(my_convertcoords(g_game.poshit[0], 2),
 		   g_game.poshit[1] + 48) == 0)
@@ -90,20 +96,20 @@ void	his_turn(t_map *map)
       if (is_num(map->map[g_game.poshit[1] - 1][g_game.poshit[0] - 1]))
         {
 	  map->map[g_game.poshit[1] - 1][g_game.poshit[0] - 1] = 'x';
-	  my_printf("%s: hit\n\n", sended_pos(g_game.poshit[0], g_game.poshit[1]));
+	  sended_pos(1);
           start_sender(SENDHIT, 1);
         }
       else
 	{
 	  if (map->map[g_game.poshit[1] - 1][g_game.poshit[0] - 1] != 'x')
-	    map->map[g_game.poshit[1] - 1][g_game.poshit[0] - 1] = '0';
-	  my_printf("%s: missed\n\n", sended_pos(g_game.poshit[0], g_game.poshit[1]));
+	    map->map[g_game.poshit[1] - 1][g_game.poshit[0] - 1] = 'o';
+	  sended_pos(2);
 	  start_sender(SENDHIT, 2);
 	}
     }
   else
     {
-      my_printf("ERROR: wrong\n\n");
+      my_putstr("ERROR: wrong\n\n");
       start_sender(SENDHIT, 3);
     }
 }
