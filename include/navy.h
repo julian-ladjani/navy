@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Thu Feb 16 02:20:58 2017 julian ladjani
+** Last update Thu Feb 16 02:59:23 2017 julian ladjani
 */
 
 #ifndef NAVY_H_
@@ -64,15 +64,12 @@ void		start_sender(int type, int value);
 void		sender_action();
 void		sender_send(int type);
 void		sender_changemode();
-void		the_navy_game_p2(t_map *map);
-void		the_navy_game_p1(t_map *map);
 void		check_hit(t_map *map, char *pos);
 void		his_turn(t_map *map);
 void		sended_pos(int type);
 void		my_putstr(char *str);
 
-unsigned int	my_getnbru(char *str);
-
+int		my_getnbru(char *str);
 int		my_printf(char *str, ...);
 int		my_strlen(char *str);
 int		is_alpha(char c);
@@ -83,6 +80,8 @@ int		check_map(char **map, int min);
 int		the_game_loop(t_map *map);
 int		the_game(char **map, char **omap);
 int		check_getpos(char posx, char posy);
+int		the_navy_game_p2(t_map *map);
+int		the_navy_game_p1(t_map *map);
 
 char		my_convertcoords(char coord, int type);
 char		*get_next_line(const int fd);

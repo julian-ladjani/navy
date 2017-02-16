@@ -5,8 +5,11 @@
 ** Login   <shielder@epitech.net>
 ** 
 ** Started on  Thu Feb  2 14:00:20 2017 Maxime PICOT
-** Last update Thu Feb 16 02:19:31 2017 julian ladjani
+** Last update Thu Feb 16 02:52:06 2017 julian ladjani
 */
+
+#include <unistd.h>
+#include "navy.h"
 
 int	my_strlen(char *str)
 {
