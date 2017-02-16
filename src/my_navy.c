@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Thu Feb  2 15:11:52 2017 julian ladjani
-** Last update Thu Feb 16 11:26:35 2017 julian ladjani
+** Last update Thu Feb 16 16:51:53 2017 Maxime PICOT
 */
 
 #include "navy.h"
@@ -20,6 +20,8 @@ int	the_navy_game_p2(t_map *map)
   if ((value = check_victory(map)) != 0)
     return (value);
   pos = my_turn(map);
+  if ((value = check_victory(map)) != 0)
+    return (value);
   while (g_game.mode != NONE);
   g_game.mode = RECHIT;
   check_hit(map, pos);
@@ -39,7 +41,8 @@ int	the_navy_game_p1(t_map *map)
     return (value);
   g_game.mode = RECPOSX;
   his_turn(map);
-  return (0);
+  value = check_victory(map);
+  return (value);
 }
 
 int	the_game_loop(t_map *map)
