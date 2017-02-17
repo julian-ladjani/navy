@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Feb 14 02:28:52 2017 julian ladjani
-** Last update Tue Feb 14 12:55:49 2017 julian ladjani
+** Last update Fri Feb 17 18:26:31 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -32,8 +32,9 @@ char	**set_map_x(t_coords *coords, char **map)
     return (NULL);
   while (start <= end && map[coords->ly][end] != '\0')
     {
-      map[coords->ly - 1][start] = coords->boat + 48;
-      start++;
+      if (is_num(map[coords->ly - 1][start]) == 1)
+	return (NULL);
+      map[coords->ly - 1][start++] = coords->boat + 48;
     }
   return (map);
 }
@@ -60,6 +61,8 @@ char	**set_map_y(t_coords *coords, char **map)
     return (NULL);
   while (start <= end && map[end] != NULL)
     {
+      if (is_num(map[start][coords->lx - 1]) == 1)
+        return (NULL);
       map[start][coords->lx - 1] = coords->boat + 48;
       start++;
     }

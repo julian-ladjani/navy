@@ -5,7 +5,7 @@
 ** Login   <maxime.picot@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:14:08 2017 Maxime PICOT
-** Last update Thu Feb 16 11:43:01 2017 Maxime PICOT
+** Last update Fri Feb 17 17:58:55 2017 julian ladjani
 */
 
 #include <unistd.h>
@@ -18,7 +18,6 @@ void		player_waitconnect()
   kill(g_game.opid, SIGUSR2);
   g_game.poshit[3] = 1;
   my_printf("enemy connected\n\n");
-  usleep(100);
 }
 
 int		player_connect(char *spid)
@@ -30,7 +29,6 @@ int		player_connect(char *spid)
   while (g_game.opid == 0);
   my_printf("successfully connected\n\n");
   g_game.poshit[3] = 2;
-  usleep(100);
   return (1);
 }
 
