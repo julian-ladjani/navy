@@ -5,7 +5,7 @@
 ** Login   <shielder@epitech.net>
 ** 
 ** Started on  Wed Feb  1 12:01:39 2017 Maxime PICOT
-** Last update Fri Feb  3 16:53:43 2017 Maxime PICOT
+** Last update Sun Feb 19 17:51:32 2017 julian ladjani
 */
 
 #include <sys/types.h>
@@ -17,5 +17,5 @@ void	display_pid()
   pid_t	p;
 
   p = getpid();
-  my_printf("my_pid:  %i\n", p);
+  my_printf("my_pid: %d\n", p);
 }
