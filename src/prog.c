@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Thu Feb 16 18:49:44 2017 julian ladjani
+** Last update Sun Feb 19 22:11:42 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -23,7 +23,7 @@ void	sended_pos(int type)
   if (type == 1)
     my_printf("%c%c: hit\n\n", posx, posy);
   else if (type == 2)
-    my_printf("%c%c: miss\n\n", posx, posy);
+    my_printf("%c%c: missed\n\n", posx, posy);
   else
     my_printf("ERROR: wrong\n\n");
 }
