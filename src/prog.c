@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Sat Feb 11 00:10:08 2017 julian ladjani
-** Last update Sun Feb 19 22:11:42 2017 julian ladjani
+** Last update Sun Feb 19 23:20:47 2017 julian ladjani
 */
 
 #include "navy.h"
@@ -19,13 +19,15 @@ void	sended_pos(int type)
     {
       posx = g_game.poshit[0] + 64;
       posy = g_game.poshit[1] + 48;
+      my_putchar(posx);
+      my_putchar(posy);
     }
   if (type == 1)
-    my_printf("%c%c: hit\n\n", posx, posy);
+    my_putstr(": hit\n\n\0");
   else if (type == 2)
-    my_printf("%c%c: missed\n\n", posx, posy);
+    my_putstr(": missed\n\n\0");
   else
-    my_printf("ERROR: wrong\n\n");
+    my_putstr("ERROR: wrong\n\n");
 }
 
 int	check_getpos(char posx, char posy)

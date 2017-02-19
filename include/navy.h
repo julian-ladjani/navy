@@ -5,7 +5,7 @@
 ** Login   <julian.ladjani@epitech.net>
 ** 
 ** Started on  Tue Jan 31 15:59:07 2017 julian ladjani
-** Last update Thu Feb 16 02:59:23 2017 julian ladjani
+** Last update Sun Feb 19 23:21:08 2017 julian ladjani
 */
 
 #ifndef NAVY_H_
@@ -68,6 +68,7 @@ void		check_hit(t_map *map, char *pos);
 void		his_turn(t_map *map);
 void		sended_pos(int type);
 void		my_putstr(char *str);
+void		my_putchar(char c);
 
 int		my_getnbru(char *str);
 int		my_printf(char *str, ...);
